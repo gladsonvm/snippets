@@ -1,0 +1,13 @@
+"""
+template tag to return object fields and values as a dict
+in template load tag using {% load objectasdict %} and pass an object using {% getfields <object_name> %}
+to get a dict of the object.
+"""
+
+from django import template
+
+register = template.Library()
+
+@register.simple_tag
+def getfields(obj):
+    return obj.__dict__
